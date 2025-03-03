@@ -13,7 +13,7 @@ const client = new Client()
     .setPlatform(config.platform!)
 
 const account = new Account(client)
-const avatar = new Avatars(client)  // <--- Missing in your code, I added this
+const avatar = new Avatars(client)  
 
 export async function login() {
     try {
@@ -41,10 +41,10 @@ export async function getUser(){
     try {
         const response = await account.get();
         if(response.$id){
-            const userAvatar = avatar.getInitials(response.name)  // fixed typo (getInitals → getInitials)
+            const userAvatar = avatar.getInitials(response.name)
             return {
                 ...response,
-                avatar: userAvatar.toString() // fixed that semicolon mistake
+                avatar: userAvatar.toString() 
             }
         }
     } catch (error) {
